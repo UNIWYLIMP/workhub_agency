@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/upload_resume.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/login">Get Started</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+		<a href="/">Home</a>
+		<a href="/employee_signup">JobFind</a>
+		<a href="/employer_signup">Company</a>
+		<a href="/carrier_advice">Carrier</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</section>
+    <section class="main">
+		<div class="single_job_apply">
+			<div class="single_job_tab form_class">
+					<h1>Upload Resume</h1>
+				<form method="POST" action="upload_resume" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="divone">
+						<label for="inputTag" class="labelone">
+							<span class="tecy">Select</span>
+							<img src="{% static './asset/img/photo-camera.png' %}" class="imageage">
+							<input id="inputTag" class="inputone" name="file" required type="file" accept=".pdf, .doc, .docx"/>
+							<br/>
+							<span id="imageName">resume.pdf</span>
+					    </label>
+					</div>
+					<button type="submit">SUBMIT</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<img src="{% static './img/Caleblogo.png' %}" class="mainbackground">
+    <script type="text/javascript">
+		let input = document.getElementById("inputTag");
+	    let imageName = document.getElementById("imageName")
+
+	    input.addEventListener("change", ()=>{
+	     	let inputImage = document.querySelector("input[type=file]").files[0];
+	        imageName.innerText = inputImage.name;
+	    })
+
+
+		var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "95%", "width": "100%", "position": "fixed", "left": "0px", "z-index": "5", "display": "flex"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+
+		});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 930)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+			});
+		});
+    </script>
+</body>

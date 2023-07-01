@@ -1,0 +1,1265 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition: all 0.6s ease-in-out;
+}
+
+body
+{
+   font-family: 'Montserrat', sans-serif;
+   font-size: 12px;
+   width: 100%;
+   color: #fff;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+@font-face
+{
+	font-family: "Montserrat-bold";
+	src: url(../asset/fonts/Montserrat-ExtraBold.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat-regular-bold";
+	src: url(../asset/fonts/Montserrat-SemiBold.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat-regular-thin";
+	src: url(../asset/fonts/Montserrat-medium.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat-Black";
+	src: url(../asset/fonts/Montserrat-Black.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat";
+	src: url(../asset/fonts/Montserrat-Regular.ttf) format('woff2');
+}
+
+@font-face
+{
+    font-family: "Sunata";
+    src: url(../asset/fonts/Montserrat-Italic.ttf) format('woff2');
+}
+
+@font-face
+{
+    font-family: "Montserrat-default";
+    src: url(../asset/fonts/Montserrat-Medium.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat-regular-bold";
+	src: url(../asset/fonts/Montserrat-SemiBold.ttf) format('woff2');
+}
+
+@font-face
+{
+   font-family: "Montserrat-Evo";
+   src: url(../asset/fonts/Montserrat-Light.ttf) format('woff2');
+}
+
+
+/*
+	General Styling
+*/
+
+a
+{
+	text-decoration: none;
+	color: black;
+}
+
+h1
+{
+	font-family: 'Montserrat-regular-bold';
+	font-size: 30px;
+	padding: 2px 30px;
+	text-align: center;
+}
+
+h3
+{
+	font-family: 'Montserrat-bold';
+	padding: 30px 0px 20px;
+	font-size: 14px;
+	text-align: left;
+}
+
+p
+{
+	text-align: start;
+	padding: 10px 0px;
+}
+
+.red
+{
+	color: red;
+}
+
+nav
+{
+	height: 62.5px;
+	width: 100%;
+	margin: auto;
+	padding: 0px 10%;
+	box-shadow: 0px 0px 5px black;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background: black;
+	color: white;
+	position: fixed;
+	z-index: 10;
+}
+
+nav div:nth-child(1)
+{
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+nav div:nth-child(2)
+{
+	flex: 4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav div:nth-child(2) a
+{
+	margin: 0px 16.5px;
+	font-size: 11.5px;
+	color: white;
+}
+
+nav div:nth-child(2) a:hover
+{
+	color: red;
+}
+
+nav div:nth-child(3)
+{
+	flex: 2;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	color: white;
+}
+
+nav div:nth-child(3) a
+{
+	margin: 0px 7.5px;
+}
+
+.extra a
+{
+    color: white;
+}
+
+.extra a img
+{
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.classico_button
+{
+	width: auto;
+	height: 100%;
+	display: flex;
+	padding-left: 10px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.classico_button a
+{
+	padding: 13.5px 25px;
+	color: white;
+	background-color: red;
+	font-family: 'Montserrat-regular-bold';
+	border-radius: 5px;
+}
+
+.classico_button a:hover
+{
+	color: black;
+	background-color: white;
+}
+
+.navigation_tab
+{
+    width: 100%;
+    height: 52.5px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 62.5px;
+    z-index: 10;
+}
+
+.navigation_tab .tab
+{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    box-shadow: 0px 0px 3px black;
+    background: white;
+    font-family: 'Montserrat-regular-bold';
+}
+
+.navigation_tab .tab:hover
+{
+}
+
+.navigation_tab .tab img
+{
+    width: 16px;
+    height: 16px;
+    margin: 2.5px;
+}
+
+.menu_tab
+{
+    display: none;
+    background: transparent;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.navigation_drop_down
+{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0%;
+    background: white;
+    position: fixed;
+    top: 62.5px;
+    left: -100%;
+	transition: all 0.6s cubic-bezier(1,-0.82, 0, 2.03);
+	z-index: 20;
+}
+
+.navigation_drop_down a
+{
+    flex: 1;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat-regular-bold";
+    font-size: 12px;
+}
+
+.navigation_drop_down a:hover
+{
+    color: white;
+    background: red;
+}
+
+.main
+{
+    min-height: 450px;
+    width: 100%;
+    margin: auto;
+    margin-top: 48px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    z-index: 3;
+}
+
+.single_job_apply
+{
+    position: absolute;
+    min-height: 93vh;
+    width: 100%;
+    margin: auto;
+    margin-top: 15px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    z-index: 5;
+    background: url("../asset/img/nediox.png");
+    background-size: unset;
+    background-position: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single_job_apply .single_job_tab
+{
+    background: white;
+    color: black;
+    height: 97%;
+    width: 60%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 35px;
+    box-shadow: 0px 0px 5px black;
+    border-radius: 3px;
+}
+
+
+.single_job_apply .single_job_tab form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_class form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    padding: 5px 20px;
+}
+
+.form_class form span
+{
+    width: 90%;
+    display: flex;
+}
+
+.form_class form input
+{
+    width: 80%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form select
+{
+    width: 80%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form input[type="text"]
+{
+    width: 80%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form input[type="checkbox"]
+{
+    width: 20px;
+    height: 20px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form div
+{
+    display: flex;
+}
+
+.form_class form label
+{
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.geo_locale
+{
+    width: 100%;
+    padding: 0px 4.5%;
+}
+
+.parcel
+{
+    width: 80%;
+    height: 45px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    font-family: 'Montserrat-regular-bold';
+}
+
+.form_class .geo_locale input[type="text"]
+{
+    width: 50%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 1% 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+#dob
+{
+    width: 80%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 1% 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+#gender
+{
+    width: 80%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 1% 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.single_gender
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_class form textarea
+{
+    min-width: 80%;
+    min-height: 150px;
+    max-width: 80%;
+    max-height: 150px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.single_radio
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    flex: 1;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.single_radio:nth-child(2)
+{
+    margin: 0px 5px;
+}
+
+.form_class form input[type="radio"]
+{
+    width: 15px;
+    height: 15px;
+    padding: 5px 10px;
+    margin: 5px 0px 5px 5px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form button
+{
+    width: 50%;
+    height: 40px;
+    padding: 5px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid red;
+    background: red;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    font-family: 'Montserrat-regular-bold';
+}
+
+.form_class form input[type="text"]:focus
+{
+    outline: none !important;
+    border: 2px solid red !important;
+    box-shadow: 0 0 7px red !important;
+}
+
+.form_class form input[type="date"]:focus
+{
+    outline: none !important;
+    border: 2px solid red !important;
+    box-shadow: 0 0 7px red !important;
+}
+
+.form_class form textarea:focus
+{
+    outline: none !important;
+    border: 2px solid red !important;
+    box-shadow: 0 0 7px red !important;
+}
+
+.single_job_apply .single_job_tab .tore
+{
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0;
+    font-family: 'Montserrat-regular-bold';
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+}
+
+.single_job_apply .single_job_tab h1 span:nth-child(1)
+{
+    width: 90%;
+    text-align: left;
+    font-family: 'Montserrat-Evo';
+    font-size: 14px;
+}
+
+.single_job_apply .single_job_tab h1
+{
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0;
+    font-family: 'Montserrat-regular-bold';
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single_job_apply .single_job_tab h1 span:nth-child(2)
+{
+    width: 5%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: red;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Montserrat-Evo';
+}
+
+.single_job_apply .single_job_tab h1 span:nth-child(2) a
+{
+    color: red;
+}
+
+.single_job_apply .single_job_tab h2
+{
+    text-align: center;
+    padding: 2.5px 0px;
+    margin: 0;
+    font-family: 'Montserrat-Evo';
+    font-size: 14px;
+}
+
+.single_job_apply .single_job_tab img
+{
+    width: 60%;
+    height: 50%;
+    object-fit: cover;
+    margin: 20px 20%;
+}
+
+.single_job_apply .single_job_tab article
+{
+    padding: 20px;
+    text-indent: 30px;
+}
+
+.single_job_apply .single_job_tab p
+{
+    padding: 15px;
+}
+
+.apply_to_job
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.apply_to_job a
+{
+    margin: 0px 6.7px;
+}
+
+.apply_to_job #apply_for_job
+{
+    color: white;
+    background: black;
+}
+
+.apply_to_job #delete_a_job
+{
+    color: white;
+    background: red;
+}
+
+.apply_to_job #apply_for_job:hover
+{
+    color: white;
+    background: red;
+}
+
+.apply_to_job #delete_a_job:hover
+{
+    color: white;
+    background: black;
+}
+
+.under_border
+{
+    border-bottom: 1px solid #eee;
+}
+
+.lastv
+{
+	border-top: 1px solid #eee;
+	width: 100%;
+	text-align: center;
+	padding: 10px 0px;
+	background: black;
+	color: white;
+	box-shadow: rgba(11, 11, 11, 1.0) -0.1px 0px 1px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	margin-bottom: 15px;
+}
+
+.lastk
+{
+	border-top: 1px solid #eee;
+	width: 100%;
+	text-align: center;
+	padding: 10px 0px;
+	background: black;
+	color: white;
+	box-shadow: rgba(11, 11, 11, 1.0) -0.1px 0px 1px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	margin-bottom: 15px;
+}
+
+.lastx
+{
+	border: 1px solid #eee;
+	width: 100%;
+	text-align: center;
+	padding: 25px 0px;
+	background: var(--light-color);
+	box-shadow: rgba(11, 11, 11, 1.0) -0.1px 0px 1px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+.lastz
+{
+	border: 1px solid #eee;
+	width: 100%;
+	text-align: center;
+	padding: 5px 0px;
+	background: var(--light-color);
+	box-shadow: rgba(11, 11, 11, 1.0) -0.1px 0px 1px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.lastx div
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+}
+
+@media(max-width: 1280px)
+{
+    body
+    {
+
+    }
+
+    nav
+    {
+        padding: 0px 5%;
+    }
+
+    nav a
+    {
+        margin: 0px 15px;
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 35%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 90%;
+        text-align: right;
+    }
+
+    .classico_button a
+    {
+        padding: 13.5px 15px;
+        margin: 0px 5px;
+        color: white;
+        background-color: red;
+        font-family: 'Montserrat-regular-bold';
+        border-radius: 5px;
+    }
+
+    .navigation_drop_down
+    {
+        display: flex;
+        width: 100%;
+    }
+ }
+
+@media(max-width: 1150px)
+{
+    body
+    {
+    }
+
+    nav
+    {
+        padding: 0px 5%;
+    }
+
+    nav a
+    {
+        margin: 0px 15px;
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 35%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 90%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav div:nth-child(2) a
+    {
+        margin: 0px 13px;
+        font-size: 11.5px;
+        color: white;
+    }
+
+    .classico_button
+    {
+        width: 100px;
+        height: 100%;
+        display: flex;
+        padding-left: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .classico_button a
+    {
+        padding: 10.5px 12.5px;
+        color: white;
+        background-color: red;
+        font-family: 'Montserrat-regular-bold';
+        font-size: 9px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    nav div:nth-child(3) a
+    {
+        margin: 0px 4.5px;
+    }
+
+    .navigation_drop_down
+    {
+        display: none;
+        z-index: 5;
+    }
+}
+
+ @media(max-width: 930px)
+ {
+    nav
+    {
+        padding: 0px 1.5%;
+    }
+
+    nav a
+    {
+        margin: 0px 7.5px;
+        font-family: 'Montserrat-regular-bold';
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 30%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 40%;
+        text-align: right;
+    }
+
+    nav div:nth-child(3)
+    {
+        width: 30%;
+        text-align: right;
+    }
+
+    .nav_old
+    {
+        display: none;
+    }
+
+    .nav_old a
+    {
+        display: none;
+    }
+
+    .menu_tab
+    {
+        display: flex;
+        background: transparent;
+        min-width: 25px;
+        min-height: 25px;
+        max-width: 25px;
+        max-height: 25px;
+    }
+
+    .extra a img
+    {
+        width: 20px;
+        height: 20px;
+    }
+
+    .classico_button
+    {
+        width: 120px;
+        height: 100%;
+        display: flex;
+        padding-left: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .classico_button a
+    {
+        padding: 13.5px 10px;
+        width: inherit;
+        color: white;
+        background-color: red;
+        font-family: 'Montserrat-regular-bold';
+        border-radius: 5px;
+        text-align: center;
+    }
+ }
+
+ @media(max-width: 800px)
+ {
+    .single_job_apply .single_job_tab
+    {
+        background: white;
+        color: black;
+        height: 97%;
+        width: 80%;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 35px;
+        box-shadow: 0px 0px 5px black;
+        border-radius: 3px;
+    }
+ }
+
+ @media(max-width: 785px) {
+    *
+    {
+        transition: all 0s ease-in-out;
+    }
+
+    body
+    {
+    }
+
+    nav
+    {
+        padding: 0px 1.5%;
+        position: fixed;
+    }
+
+    nav a
+    {
+        margin: 0px 4.5px;
+        font-family: 'Montserrat-regular-bold';
+        font-size: smaller;
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 25%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 90%;
+        text-align: right;
+    }
+ }
+
+ @media(max-width: 650px) {
+    *
+    {
+        transition: all 0.6s ease-in-out;
+    }
+
+    nav
+    {
+        width: 100%;
+        padding: 0px 1.5%;
+    }
+
+    .nav_small
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: 75%;
+    }
+
+    .nav_small img
+    {
+        width: 30px;
+        height: 30px;
+        box-size: cover;
+    }
+
+    .nav_new
+    {
+        display: none;
+    }
+
+    .nav_old
+    {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 11.5vh;
+        left: 0vh;
+        width: 100%;
+        height: auto;
+        box-shadow: rgba(11, 10, 10, 1.0) 1px 1px 2px;
+        z-index: 10;
+    }
+
+    .nav_old a
+    {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid #1e202b;
+        font-family: 'Montserrat-regular-bold';
+    }
+ }
+
+@media(max-width: 575px)
+ {
+    body
+    {
+        overflow-y: hidden;
+    }
+
+    .single_job_apply .single_job_tab
+    {
+        background: white;
+        color: black;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0px;
+        padding: 20px 10px;
+        box-shadow: 0px 0px 5px black;
+        border-radius: 0px;
+    }
+
+    nav div:nth-child(3) a
+    {
+        margin: 0px 5.5px;
+    }
+
+    .logo h1
+    {
+        font-size: 20px;
+        text-align: left;
+    }
+    .single_job_apply .single_job_tab h1
+    {
+        text-align: center;
+        padding: 50px 0px 10px;
+        margin: 0;
+        font-family: 'Montserrat-regular-bold';
+        font-size: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .form_class form input
+    {
+        width: 90%;
+        height: 45px;
+        padding: 5px 10px;
+        margin: 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+    .form_class form select
+    {
+        width: 90%;
+        height: 45px;
+        padding: 5px 10px;
+        margin: 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+    .form_class form input[type="text"]
+    {
+        width: 90%;
+        height: 45px;
+        padding: 5px 10px;
+        margin: 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+    .geo_locale
+    {
+        width: 100%;
+        padding: 0px 4.5%;
+    }
+
+    .parcel
+    {
+        width: 90%;
+        height: 45px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding-bottom: 10px;
+        font-family: 'Montserrat-regular-bold';
+    }
+
+    .form_class .geo_locale input[type="text"]
+    {
+        width: 50%;
+        height: 45px;
+        padding: 5px 10px;
+        margin: 5px 1% 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+    #dob
+    {
+        width: 90%;
+        height: 45px;
+        padding: 5px 10px;
+        margin: 5px 1% 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+    #gender
+    {
+        width: 90%;
+        height: 45px;
+        padding: 5px 10px;
+        margin: 5px 1% 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+    .form_class form span
+    {
+        width: 100%;
+        display: flex;
+    }
+
+    .single_gender
+    {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form_class form textarea
+    {
+        min-width: 90%;
+        min-height: 150px;
+        max-width: 80%;
+        max-height: 150px;
+        padding: 5px 10px;
+        margin: 5px 0px;
+        border-radius: 7.5px;
+        border: 2px solid black;
+    }
+
+ }
+
+ @media(max-width: 510px) {
+    nav
+    {
+        width: 100%;
+        padding: 0px 1.5%;
+    }
+
+    .nav_small a
+    {
+        display: none;
+    }
+
+    .classico_button
+    {
+        display: none;
+    }
+
+    .logo h1
+    {
+        font-size: 20px;
+    }
+
+    .support_message
+    {
+        display: none;
+    }
+ }
+
+ @media(max-width: 450px)
+ {
+    .form_class
+    {
+        width: 80%;
+        padding: 20px 25px 15px;
+    }
+ }
+
+ @media(max-width: 380px)
+ {
+    .form_class
+    {
+        min-width: 70%;
+        padding: 20px 20px 15px;
+    }
+ }
+
+ @media(max-width: 320px)
+ {
+    .social_social
+    {
+        display: none;
+    }
+
+    .form_class
+    {
+        min-width: 90%;
+        padding: 20px 15px 20px;
+    }
+ }
+
+ @media(max-width: 265px) {
+    body
+    {
+        display: none;
+    }
+
+    .support_message
+    {
+        display: flex;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #1e202b;
+        color: white;
+        z-index: 20;
+    }
+ }
+
+.support_message
+{
+   display: none;
+}

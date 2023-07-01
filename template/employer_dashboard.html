@@ -1,0 +1,1159 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/employer_dashboard.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static './css/bootstrap/css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/logout">LOGOUT</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+			<span class="tab_sec_header">
+				<span class="red">NAVI</span>GATION
+			</span>
+			<span class="tab_sec_item">
+				Primary Links
+			</span>
+			<a href="/carrier_advice" target="_blank" class="tab_sec_item_child">
+				<img src="{% static './asset/img/picture.png' %}">
+				Carrier Advice
+			</a>
+			<a href="/about" target="_blank" class="tab_sec_item_child">
+				<img src="{% static './asset/img/event.png' %}">
+				About
+			</a>
+			<a href="/contact" target="_blank" class="tab_sec_item_child">
+				<img src="{% static './asset/img/article.png' %}">
+				Contact
+			</a>
+			<span class="tab_sec_item">
+				Social Pages Links
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/instagram_1.png' %}">
+				Instagram
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/facebook.png' %}">
+				FaceBook
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/twitter.png' %}">
+				Twitter
+			</span>
+			<span class="tab_sec_item">
+				Community Links
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/whatsapp_1.png' %}">
+				Whatsapp
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/telegram.png' %}">
+				Telegram
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/facebook.png' %}">
+				Facebook
+			</span>
+	</section>
+	<section class="navigation_tab">
+		<div class="tab" id="get_job"><img src="{% static './asset/img/home.svg' %}">HOME</div>
+		<div class="tab" id="get_chat"><img src="{% static './asset/img/chat-dots.svg' %}">CHATS</div>
+		<div class="tab" id="get_profile"><img src="{% static './asset/img/profile.svg' %}">PROFILE</div>
+	</section>
+	<section class="loader_container">
+            <span class="loader"></span>
+	</section>
+	<section class="main">
+		<div class="jobs">
+		</div>
+		<div class="tab_sec">
+			<span class="tab_sec_header">
+				<span class="red">NAVI</span>GATION
+			</span>
+			<span class="tab_sec_item">
+				Primary Links
+			</span>
+			<a href="/carrier_advice" target="_blank" class="tab_sec_item_child">
+				<img src="{% static './asset/img/picture.png' %}">
+				Carrier Advice
+			</a>
+			<a href="/about" target="_blank" class="tab_sec_item_child">
+				<img src="{% static './asset/img/event.png' %}">
+				About
+			</a>
+			<a href="/contact" target="_blank" class="tab_sec_item_child">
+				<img src="{% static './asset/img/article.png' %}">
+				Contact
+			</a>
+			<span class="tab_sec_item">
+				Social Pages Links
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/instagram_1.png' %}">
+				Instagram
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/facebook.png' %}">
+				FaceBook
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/twitter.png' %}">
+				Twitter
+			</span>
+			<span class="tab_sec_item">
+				Community Links
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/whatsapp_1.png' %}">
+				Whatsapp
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/telegram.png' %}">
+				Telegram
+			</span>
+			<span class="tab_sec_item_child">
+				<img src="{% static './asset/img/facebook.png' %}">
+				Facebook
+			</span>
+		</div>
+		<div class="single_job_apply">
+			<div class="single_job_tab">
+			</div>
+		</div>
+		<div class="single_job_applicant">
+			<div class="single_applicant_tab">
+			</div>
+		</div>
+		<div class="chat">
+			<main class="content">
+				<div class="container p-0">
+					<div class="card neos">
+						<div class="row">
+							<div class="col-12 col-lg-4 col-xl-4 chat-list-tab">
+
+								<div class="px-4 d-block d-md-block">
+									<div class="d-flex align-items-center">
+										<div class="flex-grow-1">
+											<p type="text" class="my-3 border_bottom">Recent Chats</p>
+										</div>
+									</div>
+								</div>
+								<span class="chat_List_tab">
+								</span>
+								<hr class="d-block d-lg-none mt-1 mb-0">
+							</div>
+							<div class="col-12 col-lg-8 col-xl-8 chat-cardio">
+								<div class="py-2 px-4 border-bottom d-block d-lg-block">
+									<div class="d-flex align-items-center py-1">
+										<div class="position-relative" id="user_special_img">
+										</div>
+										<div class="flex-grow-1 pl-3">
+											<strong id="user_special_name">......</strong>
+											<div class="text-muted small"><em class="status_fellow_member">Employer Account...</em></div>
+										</div>
+										<div>
+											<button class="btn btn-warning btn-lg mr-1 px-2 py-1 my-0" id="warn_single_chat">
+											</button>
+											<button class="btn btn-dark btn-lg mr-1 px-2 py-1 my-0" id="clear_single_chat">
+											</button>
+											<button class="btn btn-danger btn-lg mr-1 px-2 py-1 my-0" id="delete_single_chat">
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="position-relative">
+									<div class="chat-messages p-4" id="chat-messages">
+
+									</div>
+								</div>
+
+								<div class="flex-grow-0 py-3 px-4 border-top">
+									<div class="input-group">
+										<input type="text" class="form-control" placeholder="Type your message" id="message_input">
+										<button class="btn btn-primary this_red" id="message_button">Send</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<div class="profile">
+			<div class="section_profile">
+				<div class="firstsec">
+					<div class="profpic">
+					</div>
+					<div class="proftit">
+						<h3>...........</h3>
+						<p>....... ..... .. .....</p>
+						<a href='/employer_edit_profile'><img src="{% static './asset/img/pencil-square.svg' %}" class="bititi"></a>
+					</div>
+					<div class="profhans">
+						<h3>Primary Info</h3>
+						<div>
+							<span class="flamejaws userLocation"><img src="{% static './asset/img/geo-alt-fill.svg' %}"> ....., .......</span>
+							<span class="flamejaws userGender"><img src="{% static './asset/img/person-fill.svg' %}"> ....</span>
+							<span class="flamejaws userEmail"><img src="{% static './asset/img/envelope-plus.svg' %}"> ........</span>
+						</div>
+						<div>
+							<span class="flamejaws userContact"><img src="{% static './asset/img/phone.svg' %}"> ........</span>
+							<span class="flamejaws userDOB"><img src="{% static './asset/img/calendar2-date.svg' %}">......</span>
+							<span class="flamejaws"></span>
+						</div>
+					</div>
+				</div>
+				<div class="thirdsec">
+					<span class="blight">
+						<h3>About</h3>
+						<div class="rogo">
+							<a href='/employer_edit_profile'><img src="{% static './asset/img/pencil-square.svg' %}" class="xbititi"></a>
+						</div>
+					</span>
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id="ready">
+		<h3>MESSAGE!</h3>
+		<div class="message">
+			{{message}}
+		</div>
+		<button onclick="close_pop_up()">Upload</button>
+	</div>
+	<div id="confirm">
+		<h3>CONFIRM!</h3>
+		<div class="message">
+			{{message}}
+		</div>
+		<button onclick="close_pop_up()">Upload</button>
+	</div>
+	<h3 class="support_message">Your Device Screen Size Is Not Supported. Try a larger screen!</h3>
+	<div id="hideAll">&nbsp</div>
+	<script type="text/javascript">
+		var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "90%", "width": "100%", "position": "fixed", "left": "0px"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+		});
+
+		var loader_active = false;
+		window.onload = function(){
+			document.getElementById("hideAll").style.display = "none";
+		}
+
+		$(document).on('click', '#get_job', function(e){
+			if(loader_active == false){
+				empty_handler();
+				get_job();
+			}
+		})
+
+		$(document).on('click', '#get_chat', function(e){
+			if(loader_active == false){
+				empty_handler();
+				get_chat();
+			}
+		})
+
+		$(document).on('click', '#get_profile', function(e){
+			if(loader_active == false){
+				empty_handler();
+				get_profile();
+			}
+		})
+
+
+		$(document).ready(function(){
+			get_job();
+		});
+
+
+		function loader_handler()
+		{
+			if(loader_active == false){
+				setTimeout(function(){
+					let loader = document.querySelector('.loader_container');
+					loader.style = "display: flex !important; opacity: 1 !important;";
+					loader_active = true;
+				}, 10);
+
+				setTimeout(function(){
+					let loader = document.querySelector('.loader_container');
+					loader.style = "opacity: 0.5; !important";
+				}, 2000)
+
+				setTimeout(function(){
+					let loader = document.querySelector('.loader_container');
+					loader.style = "opacity: 0.3; !important";
+				}, 2100)
+
+				setTimeout(function(){
+					let loader = document.querySelector('.loader_container');
+					loader.style = "opacity: 0.0 !important;";
+				}, 2200)
+
+				setTimeout(function(){
+					let loader = document.querySelector('.loader_container');
+					loader.style = "display: none !important;";
+					loader_active = false;
+				}, 2300)
+			}
+		}
+
+		function empty_handler()
+		{
+			let handler = document.querySelector(".jobs");
+			handler.style = "display: none !important;";
+			handler = document.querySelector(".profile");
+			handler.style = "display: none !important;";
+			handler = document.querySelector(".single_job_apply");
+			handler.style = "display: none !important;";
+			handler = document.querySelector("#ready");
+			handler.style = "display: none !important;";
+			handler = document.querySelector(".single_job_applicant");
+			handler.style = "display: none !important;";
+			handler = document.querySelector(".chat");
+			handler.style = "display: none !important;";
+			handler = document.querySelector("#confirm");
+			handler.style = "display: none !important;";
+			handler = document.querySelector(".tab_sec");
+			handler.style = "display: none !important;";
+		}
+
+		function get_job()
+		{
+			empty_handler();
+			let jobs = document.querySelector(".jobs");
+			jobs.style = "display: flex !important;";
+			$(".jobs").css("display", "flex");
+			$(".jobs").html("");
+			$.ajax({
+				type: 'GET',
+				url: "{% url 'employer_jobs' %}",
+				data: {},
+				success: function(response)
+				{
+					loader_handler();
+					setTimeout(function(){
+						$(".jobs").html("<div class='job_header'><h1>Job Applications</h1><p class='classico_button create_job'><a href='/employer_create_job'>Create Job</a></p></div>")
+						for(let x = 0; x < response.num_of_jobs; x++)
+						{
+
+							let new_profile = "";
+							if(response.jobs[x].job_poster_profile_img == "none")
+							{
+								new_profile = "/static/asset/img/project.png";
+							}
+							else
+							{
+								new_profile = response.jobs[x].job_poster_profile_img
+							}
+							console.log(response)
+							let new_list = ""
+							let job_title = ""
+
+							if(window.innerWidth > 1001)
+							{
+								if(response.jobs[x].job_categories.length < 5)
+								{
+									for(let p = 0; p < response.jobs[x].job_categories.length;p++)
+									{
+										new_list += "<span class='single_job_category' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_categories[p].substr(0, 10) + "...</span>"
+									}
+								}
+
+								else
+								{
+									for(let p =0; p < 5;p++)
+									{
+										new_list += "<span class='single_job_category' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_categories[p].substr(0, 10) + "...</span>"
+									}
+								}
+
+								if (response.jobs[x].job_title.length < 22)
+								{
+									job_title = response.jobs[x].job_title
+								}
+
+								else
+								{
+									job_title = response.jobs[x].job_title.substr(0, 23) + "..."
+								}
+							}
+
+							else if(window.innerWidth < 1001 && window.innerWidth > 450)
+							{
+								if(response.jobs[x].job_categories.length < 5)
+								{
+									for(let p = 0; p < response.jobs[x].job_categories.length;p++)
+									{
+										new_list += "<span class='single_job_category' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_categories[p].substr(0, 8) + "...</span>"
+									}
+								}
+
+								else
+								{
+									for(let p =0; p < 5;p++)
+									{
+										new_list += "<span class='single_job_category' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_categories[p].substr(0, 8) + "...</span>"
+									}
+								}
+
+								if (response.jobs[x].job_title.length < 22)
+								{
+									job_title = response.jobs[x].job_title
+								}
+
+								else
+								{
+									job_title = response.jobs[x].job_title.substr(0, 23) + "..."
+								}
+							}
+
+							else
+							{
+								if(response.jobs[x].job_categories.length < 3)
+								{
+									for(let p = 0; p < response.jobs[x].job_categories.length;p++)
+									{
+										new_list += "<span class='single_job_category' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_categories[p].substr(0, 6) + "...</span>"
+									}
+								}
+
+								else
+								{
+									for(let p =0; p < 3;p++)
+									{
+										new_list += "<span class='single_job_category' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_categories[p].substr(0, 6) + "...</span>"
+									}
+								}
+
+								if (response.jobs[x].job_title.length < 18)
+								{
+									job_title = response.jobs[x].job_title
+								}
+
+								else
+								{
+									job_title = response.jobs[x].job_title.substr(0, 18) + "..."
+								}
+							}
+
+							$(".jobs").append("<div class='single_job' id='job_stack_item' data-job-id=" + response.jobs[x].job_id + "><div class='fxskillset' data-job-id=" + response.jobs[x].job_id + "><div class='sevila' data-job-id=" + response.jobs[x].job_id + "><img src='" + new_profile + "' class='company_img' data-job-id=" + response.jobs[x].job_id + "><span class='job_content' data-job-id=" + response.jobs[x].job_id + "><h4 data-job-id=" + response.jobs[x].job_id + ">" + job_title + "</h4><p class='company_location_type' data-job-id=" + response.jobs[x].job_id + "></p><p class='company_name' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_poster_name + " - " + response.jobs[x].job_location + " - ("  + response.jobs[x].job_type + ")</p><p class='company_name' data-job-id=" + response.jobs[x].job_id + ">SALARY: " + response.jobs[x].job_pay + " (monthly)</p><article class='lorel' data-job-id=" + response.jobs[x].job_id + ">" + response.jobs[x].job_description.substr(0, 250) + "...<span class='red garbage' data-job-id=" + response.jobs[x].job_id + ">MORE</article><p class='categories_title' data-job-id=" + response.jobs[x].job_id + ">Categories:</p><span class='category_List_tab' data-job-id=" + response.jobs[x].job_id + ">" + new_list + "...</span></span><span class='job_menu' data-job-id=" + response.jobs[x].job_id + "><img src='/static/asset/img/menu.svg' class='more' data-job-id=" + response.jobs[x].job_id + "></span></div></div></div>")
+						}
+
+						if(response.num_of_jobs == 0)
+						{
+							$(".jobs").append("<br><br><br><br><br><br><br><h1 style='color:red;padding: 50px;font-size:30px;font-family:sans-serif;'>You have no job open and actively recruiting</h1>");
+						}
+						console.log(response.num_of_jobs)
+
+						let tab = document.querySelector(".tab_sec");
+						tab.style = "display: flex !important;";
+
+					}, 500);
+				}
+			})
+		}
+
+		$(document).on('click', '#job_stack_item', function(e){
+			e.preventDefault();
+			$.ajax({
+				type: 'GET',
+				data: {
+					job_id: e.target.getAttribute('data-job-id'),
+					},
+				url: "{% url 'employer_single_job' %}",
+				success: function(response)
+					{
+					empty_handler();
+					loader_handler();
+					setTimeout(function(){
+						let single_slab_job = document.querySelector(".single_job_apply");
+						single_slab_job.style = "display: flex !important;";
+						let new_profile = "";
+						if(response.job.job_poster_profile_img == "none")
+						{
+							new_profile = "/static/asset/img/project.png";
+						}
+						else
+						{
+							new_profile = response.job.job_poster_profile_img
+						}
+						$(".single_job_tab").html("<h1 class='tora'><span>Your Post</span><span class='exit_single_job'>(exit)</span></h1><img src=" + new_profile + "><h1>" + response.job.job_title + "(" + response.job.job_type + ")</h1><h2>Apply to: " + response.job.job_poster_name + "</h2><article>" + response.job.job_description + "</article>")
+						$(".single_job_tab").append("<p class='under_border'><strong>REQUIREMENTS</strong></p>")
+						for(let p = 0; p < response.job.job_requirements.length; p++)
+						{
+							$(".single_job_tab").append("<p>- " + response.job.job_requirements[p] + "</p>")
+						}
+						$(".single_job_tab").append("<p class='under_border'><strong>ROLES</strong></p>")
+						for(let p = 0; p < response.job.job_roles.length; p++)
+						{
+							$(".single_job_tab").append("<p>- " + response.job.job_roles[p] + "</p>")
+						}
+						$(".single_job_tab").append("<p class='under_border'><strong>Pay</strong>: " + response.job.job_pay +" (Monthly)</p>")
+						$(".single_job_tab").append("<p class='under_border'><strong>Location</strong>: " + response.job.job_location +" (Monthly)</p>")
+						let category = "";
+						for(let p = 0; p < response.job.job_categories.length; p++)
+						{
+							category += "[" + response.job.job_categories[p] + "] ";
+						}
+						$(".single_job_tab").append("<p class='under_border'><strong>Categories</strong>: " + category + ".</p><p class='under_border'><strong>Number of Applications</strong>: " + response.job.number_of_applicant + " Applicant(s).</p><span class='apply_to_job classico_button_vb'><a id='applications_for_job' data-job-special-id=" + response.job.job_id + ">APPLICANTS</a><a href='/employer_delete_job/" + response.job.job_id + "' id='delete_a_job'>CLOSE JOB</a></span>");
+					}, 500);
+				}
+			});
+		});
+
+		$(document).on('click', '#applications_for_job', function(e){
+			e.preventDefault();
+			$.ajax({
+				type: 'GET',
+				data: {
+					job_id: e.target.getAttribute('data-job-special-id'),
+					},
+				url: "{% url 'employer_single_job_applicant' %}",
+				success: function(response)
+					{
+						loader_handler();
+						setTimeout(function(){
+							let single_slab_job = document.querySelector(".single_job_apply");
+							single_slab_job.style = "display: none !important;";
+							single_slab_job = document.querySelector(".single_job_applicant");
+							single_slab_job.style = "display: flex !important;";
+							$(".single_applicant_tab").html("<h1 class='tora under_border'><span>Job Applicant(s)</span><span class='exit_single_job_applicant'>(back)</span></h1>")
+							let new_profile = "";
+							for(let x = 0; x < response.applicants.length; x++)
+							{
+								if(response.applicants[x].applicant_profile_image == "none")
+								{
+									new_profile = "/static/asset/img/new_person.png";
+								}
+								else
+								{
+									new_profile = response.applicants[x].applicant_profile_image
+								}
+								if(response.applicants[x].applicant_status == "accepted")
+								{
+									$(".single_applicant_tab").append("<div class='applicant_stack'><img class='applicant_logo' src='" + new_profile + "'><div class='applicant_frame'><h3>" + response.applicants[x].applicant_name + "</h3></div><span class='applicant_nest'><div class='applicant_frame_x classico_button_x'><a class='view_profile' href='/viewprofile/" + response.applicants[x].applicant_id + "'>View Profile</a></div><div class='applicant_frame_x classico_button_x'><a class='download_cv' href='" + response.applicants[x].applicant_profile_cv + "'>" + response.applicants[x].applicant_profile_cv_status + "</a></div></span></div><form class='interview_form'><span class='applicant_stack_z'><input type='text' name='interviewLocation' placeholder='Interview Location: Ex: random address' value=" + response.applicants[x].interview_location + " ><input type='text' name='interviewDate' placeholder='Interview Date: Ex: 6th, March' value=" + response.applicants[x].interview_date + "><input type='text' name='interviewLocation' placeholder='Interview Time: Ex: 4:35AM' value=" + response.applicants[x].interview_time + " ></span><div class='applicant_stack classico_button_x under_border'><a class='accept_application_status'>Application Accepted</a></div></form>");
+								}
+
+								else if(response.applicants[x].applicant_status == "rejected")
+								{
+									$(".single_applicant_tab").append("<div class='applicant_stack'><img class='applicant_logo' src='" + new_profile + "'><div class='applicant_frame'><h3>" + response.applicants[x].applicant_name + "</h3></div><span class='applicant_nest'><div class='applicant_frame_x classico_button_x'><a class='view_profile' href='/viewprofile/" + response.applicants[x].applicant_id +"'>View Profile</a></div><div class='applicant_frame_x classico_button_x'><a class='download_cv' href='" + response.applicants[x].applicant_profile_cv + "'>" + response.applicants[x].applicant_profile_cv_status + "</a></div></span></div><form class='interview_form'><span class='applicant_stack_z'><input type='text' name='interviewLocation' placeholder='Interview Location: Ex: random address'><input type='text' name='interviewDate' placeholder='Interview Date: Ex: 6th, March'><input type='text' name='interviewLocation' placeholder='Interview Time: Ex: 4:35AM'></span><div class='applicant_stack classico_button_x under_border'><a class='accept_application_status'>Application Rejected</a></div></form>");
+								}
+
+								else
+								{
+									$(".single_applicant_tab").append("<div class='applicant_stack'><img class='applicant_logo' src='" + new_profile + "'><div class='applicant_frame'><h3>" + response.applicants[x].applicant_name + "</h3></div><span class='applicant_nest'><div class='applicant_frame_x classico_button_x'><a class='view_profile' href='/viewprofile/" + response.applicants[x].applicant_id +"'>View Profile</a></div><div class='applicant_frame_x classico_button_x'><a class='download_cv' href='" + response.applicants[x].applicant_profile_cv + "'>" + response.applicants[x].applicant_profile_cv_status + "</a></div></span></div><form id='techco_form' class='interview_form interview_form_target' data-unique-form=" + response.applicants[x].form_id + "  data-zeta-application-id=" + response.applicants[x].application_id + "><span class='applicant_stack_z' id='ntn" + response.applicants[x].form_id + "'><input type='text' name='interviewLocation' placeholder='Interview Location(Url): Ex: random address' required><input type='text' name='interviewDate' placeholder='Interview Date: Ex: 6th, March' required><input type='text' name='interviewLocation' placeholder='Interview Time: Ex: 4:35AM' required><input type='radio' name='online' value='true' class='online_interview'></span><div class='applicant_stack classico_button_x under_border'><button type='submit' class='accept_application' id='submit_button'>Accept</button><a class='reject_application' id='reject_job_application' data-zeta-job-id=" + response.job_id + " data-zeta-application-id=" + response.applicants[x].application_id + " >Reject</a></div></form>");
+								}
+							}
+						}, 500);
+					}
+			});
+		});
+
+
+		$(document).on('submit', '#techco_form', function(e){
+			e.preventDefault();
+			console.log("Hello World");
+			console.log(e);
+			let form_id = "#ntn" + e.target.getAttribute('data-unique-form');
+			let input1 = document.querySelector(form_id + " input:nth-child(1)");
+			let input2 = document.querySelector(form_id + " input:nth-child(2)");
+			let input3 = document.querySelector(form_id + " input:nth-child(3)");
+
+			$.ajax({
+				type: 'GET',
+				data: {
+					location: input1.value,
+					date: input2.value,
+					time: input3.value,
+					online: input3.value,
+					application_id: e.target.getAttribute('data-zeta-application-id'),
+					},
+				url: "{% url 'accept_job_application' %}",
+				success: function(response)
+				{
+					if(response.message == "success")
+					{
+						console.log("hello people")
+						console.log(e.target.getAttribute('data-zeta-application-id'))
+						console.log(e.target.getAttribute('data-zeta-job-id'))
+						reload_applicants_list(e.target.getAttribute('data-zeta-job-id'));
+					}
+				}
+			});
+		});
+
+		$(document).on('click', '#reject_job_application', function(e){
+			e.preventDefault();
+			$.ajax({
+				type: 'GET',
+				data: {
+					application_id: e.target.getAttribute('data-zeta-application-id'),
+					job_id: e.target.getAttribute('data-zeta-job-id'),
+					},
+				url: "{% url 'reject_job_application' %}",
+				success: function(response)
+				{
+					loader_handler();
+					setTimeout(function(){
+						if(response.message == "success")
+						{
+							reload_applicants_list(e.target.getAttribute('data-zeta-job-id'));
+						}
+					}, 500);
+				}
+			});
+		});
+
+		function reload_applicants_list(job_identity){
+			$.ajax({
+				type: 'GET',
+				data: {
+					job_id: job_identity,
+					},
+				url: "{% url 'employer_single_job_applicant' %}",
+				success: function(response)
+					{
+						let single_slab_job = document.querySelector(".single_job_apply");
+						single_slab_job.style = "display: none !important;";
+						single_slab_job = document.querySelector(".single_job_applicant");
+						single_slab_job.style = "display: flex !important;";
+						$(".single_applicant_tab").html("<h1 class='tora under_border'><span>Job Applicant(s)</span><span class='exit_single_job_applicant'>(back)</span></h1>")
+						let new_profile = "";
+						for(let x = 0; x < response.applicants.length; x++)
+						{
+							if(response.applicants[x].applicant_profile_image == "none")
+							{
+								new_profile = "/static/asset/img/new_person.png";
+							}
+							else
+							{
+								new_profile = response.applicants[x].applicant_profile_image
+							}
+
+							if(response.applicants[x].applicant_status == "accepted")
+							{
+								$(".single_applicant_tab").append("<div class='applicant_stack'><img class='applicant_logo' src='" + new_profile + "'><div class='applicant_frame'><h3>" + response.applicants[x].applicant_name + "</h3></div><span class='applicant_nest'><div class='applicant_frame_x classico_button'><a class='view_profile' href='/viewprofile/" + response.applicants[x].applicant_id + "'>View Profile</a></div><div class='applicant_frame_x classico_button'><a class='download_cv' href='" + response.applicants[x].applicant_profile_cv + "'>" + response.applicants[x].applicant_profile_cv_status + "</a></div></span></div><form class='interview_form'><span class='applicant_stack_z'><input type='text' name='interviewLocation' placeholder='Interview Location: Ex: random address' value=" + response.applicants[x].interview_location + " ><input type='text' name='interviewDate' placeholder='Interview Date: Ex: 6th, March' value=" + response.applicants[x].interview_date + "><input type='text' name='interviewLocation' placeholder='Interview Time: Ex: 4:35AM' value=" + response.applicants[x].interview_time + " ></span><div class='applicant_stack classico_button under_border'><a class='accept_application_status'>Application Accepted</a></div></form>");
+							}
+
+							else if(response.applicants[x].applicant_status == "rejected")
+							{
+								$(".single_applicant_tab").append("<div class='applicant_stack'><img class='applicant_logo' src='" + new_profile + "'><div class='applicant_frame'><h3>" + response.applicants[x].applicant_name + "</h3></div><span class='applicant_nest'><div class='applicant_frame_x classico_button'><a class='view_profile' href='/viewprofile/" + response.applicants[x].applicant_id +"'>View Profile</a></div><div class='applicant_frame_x classico_button'><a class='download_cv' href='" + response.applicants[x].applicant_profile_cv + "'>" + response.applicants[x].applicant_profile_cv_status + "</a></div></span></div><form class='interview_form'><span class='applicant_stack_z'><input type='text' name='interviewLocation' placeholder='Interview Location: Ex: random address'><input type='text' name='interviewDate' placeholder='Interview Date: Ex: 6th, March'><input type='text' name='interviewLocation' placeholder='Interview Time: Ex: 4:35AM'></span><div class='applicant_stack classico_button under_border'><a class='accept_application_status'>Application Rejected</a></div></form>");
+							}
+
+							else
+							{
+								$(".single_applicant_tab").append("<div class='applicant_stack'><img class='applicant_logo' src='" + new_profile + "'><div class='applicant_frame'><h3>" + response.applicants[x].applicant_name + "</h3></div><span class='applicant_nest'><div class='applicant_frame_x classico_button'><a class='view_profile' href='/viewprofile/" + response.applicants[x].applicant_id +"'>View Profile</a></div><div class='applicant_frame_x classico_button'><a class='download_cv' href='" + response.applicants[x].applicant_profile_cv + "'>" + response.applicants[x].applicant_profile_cv_status + "</a></div></span></div><form id='techco_form' class='interview_form interview_form_target' data-unique-form=" + response.applicants[x].form_id + "  data-zeta-application-id=" + response.applicants[x].application_id + "><span class='applicant_stack_z' id='ntn" + response.applicants[x].form_id + "'><input type='text' name='interviewLocation' placeholder='Interview Location(Url): Ex: random address' required><input type='text' name='interviewDate' placeholder='Interview Date: Ex: 6th, March' required><input type='text' name='interviewLocation' placeholder='Interview Time: Ex: 4:35AM' required><input type='radio' name='online' value='true' class='online_interview'></span><div class='applicant_stack classico_button under_border'><button type='submit' class='accept_application' id='submit_button'>Accept</button><a class='reject_application' id='reject_job_application' data-zeta-job-id=" + response.job_id + " data-zeta-application-id=" + response.applicants[x].application_id + " >Reject</a></div></form>");
+							}
+						}
+					}
+			});
+		}
+
+		$(document).on('click', '.exit_single_job', function(e){
+			let handler = document.querySelector(".single_job_apply");
+			handler.style = "display: none !important;";
+			handler = document.querySelector("#ready");
+			handler.style = "display: none !important;";
+			let jobs = document.querySelector(".jobs");
+			jobs.style = "display: flex !important;";
+			let tab = document.querySelector(".tab_sec");
+			tab.style = "display: flex !important;";
+			})
+
+		$(document).on('click', '.exit_single_job_applicant', function(e){
+				let single_slab_job = document.querySelector(".single_job_applicant");
+				single_slab_job.style = "display: none !important;";
+				single_slab_job = document.querySelector(".single_job_apply");
+				single_slab_job.style = "display: flex !important;";
+			})
+
+		/* CHART SECTION */
+
+		/* CHART SECTION */
+
+		var active_chart = ""
+
+		function get_chat(){
+			empty_handler();
+			loader_handler();
+			setTimeout(function()
+			{
+				let chat = document.querySelector(".chat");
+				chat.style = "display: flex !important;";
+			}, 100);
+
+			let objDiv = document.getElementById("chat-messages");
+			objDiv.scrollTop = objDiv.scrollHeight;
+			$(".chat_List_tab").empty();
+			$.ajax({
+				type: 'GET',
+				data: {},
+				url: "{% url 'employee_chat' %}",
+				success: function(response)
+				{
+					setTimeout(function()
+					{
+						chats = response.chat
+						for(let p = 0; p < chats.length; p++)
+						{
+							if(chats[p].friend_profile_img == "none")
+							{
+								new_profile = "/static/asset/img/new_person.png";
+							}
+							else
+							{
+								new_profile = chats[p].friend_profile_img
+							}
+
+							if(p == 0)
+							{
+								$(".chat_List_tab").append("<a class='list-group-item list-group-item-action border-0 click_single_chat' id='chat_" + chats[p].id + "' data-chat-item='" + chats[p].id + "'><div class='badge float-right background-eee' data-chat-item='" + chats[p].id + "'></div><div class='d-flex align-items-start' data-chat-item='" + chats[p].id + "'><img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + chats[p].friend_name + "' width='40' height='40' data-chat-item='" + chats[p].id + "'><div class='flex-grow-1 ml-3' data-chat-item='" + chats[p].id + "'>" + chats[p].friend_name + "<div class='small' data-chat-item='" + chats[p].id + "'><span class='fas fa-circle chat-online' data-chat-item='" + chats[p].id + "'></span>" + chats[p].last_message + "</div></div></div></a>")
+							}
+
+							else if(chats[p].latest_update == "new")
+							{
+								$(".chat_List_tab").append("<a class='list-group-item list-group-item-action border-0 click_single_chat' id='chat_" + chats[p].id + "' data-chat-item='" + chats[p].id + "'><div class='badge float-right background-red' data-chat-item='" + chats[p].id + "'>#</div><div class='d-flex align-items-start' data-chat-item='" + chats[p].id + "'><img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + chats[p].friend_name + "' width='40' height='40' data-chat-item='" + chats[p].id + "'><div class='flex-grow-1 ml-3' data-chat-item='" + chats[p].id + "'>" + chats[p].friend_name + "<div class='small' data-chat-item='" + chats[p].id + "'><span class='fas fa-circle chat-online' data-chat-item='" + chats[p].id + "'></span>" + chats[p].last_message + "</div></div></div></a>")
+							}
+
+							else
+							{
+								$(".chat_List_tab").append("<a class='list-group-item list-group-item-action border-0 click_single_chat' id='chat_" + chats[p].id + "' data-chat-item='" + chats[p].id + "'><div class='badge float-right background-eee' data-chat-item='" + chats[p].id + "'></div><div class='d-flex align-items-start' data-chat-item='" + chats[p].id + "'><img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + chats[p].friend_name + "' width='40' height='40' data-chat-item='" + chats[p].id + "'><div class='flex-grow-1 ml-3' data-chat-item='" + chats[p].id + "'>" + chats[p].friend_name + "<div class='small' data-chat-item='" + chats[p].id + "'><span class='fas fa-circle chat-online' data-chat-item='" + chats[p].id + "'></span>" + chats[p].last_message + "</div></div></div></a>")
+							}
+						}
+
+						active_chart = response.latest_chat_id
+						load_private_chat(response.latest_chat_id, "none");
+					}, 1000);
+				}
+			});
+		}
+
+		$(document).on('click', '.click_single_chat', function(e){
+				$("#chat-messages").empty()
+				$("#user_special_name").html("------");
+				$("#user_special_img").html("<img src='" + "/static/asset/img/new_person.png" + "' class='rounded-circle mr-1' alt='---' width='40' height='40'>");
+				$("#warn_single_chat").html("");
+				$("#delete_single_chat").html("");
+				$("#clear_single_chat").html("");
+
+				if(window.innerWidth > 991)
+				{
+					active_chart = e.target.getAttribute('data-chat-item')
+					load_private_chat(e.target.getAttribute('data-chat-item'), "true");
+					reload_chat_list();
+				}
+
+				else
+				{
+					active_chart = e.target.getAttribute('data-chat-item')
+					load_private_chat(e.target.getAttribute('data-chat-item'), "true");
+					reload_chat_list();
+					$(".chat-list-tab").css({"display": "none"})
+					$(".chat-list-tab").css({"display": "none"})
+					$(".chat-cardio").css({"display": "flex", "flex-direction": "column", "min-height": "80vh"})
+				}
+			});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 991)
+			    {
+			        $(".chat-list-tab").css({"max-height": "75vh", "overflow-x": "hidden", "overflow-y": "scroll", "display": "flex", "flex-direction": "column"})
+                    $(".chat-cardio").css({"display": "flex", "flex-direction": "column"})
+			    }
+
+			    if(window.innerWidth > 1000)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+
+				if( document.querySelector(".chat").style.display == "flex")
+				{
+					$.ajax({
+						type: 'GET',
+						url: "{% url 'reloadprivatechat' %}",
+						data: {},
+						success: function(response)
+						{
+							if(response.update == "true")
+							{
+								load_private_chat(active_chart, "none");
+							}
+						}
+					});
+				}
+			}, 1000);
+		})
+
+		$(document).ready(function(){
+			setInterval(function(){
+				if( document.querySelector(".chat").style.display == "flex")
+				{
+					$.ajax({
+						type: 'GET',
+						url: "{% url 'reloadprivatechat_two' %}",
+						data: {},
+						success: function(response)
+						{
+							if(response.reload_chat_list == "true")
+							{
+								console.log("Chat Denaiv");
+								reload_chat_list();
+							}
+						}
+					});
+				}
+			}, 1000);
+		})
+
+		function reload_chat_list()
+		{
+			console.log("chat reloaded $%^");
+			$(".chat_List_tab").empty();
+			$.ajax({
+				type: 'GET',
+				data: {},
+				url: "{% url 'employee_chat' %}",
+				success: function(response)
+				{
+					$(".chat_List_tab").empty();
+					$(".chat_List_tab").empty();
+					chats = response.chat
+					for(let p = 0; p < chats.length; p++)
+					{
+						if(chats[p].friend_profile_img == "none")
+						{
+							new_profile = "/static/asset/img/new_person.png";
+						}
+						else
+						{
+							new_profile = chats[p].friend_profile_img
+						}
+
+						console.log(chats[p].latest_update + " update status");
+						if(chats[p].latest_update == "new")
+						{
+							$(".chat_List_tab").append("<a class='list-group-item list-group-item-action border-0 click_single_chat' id='chat_" + chats[p].id + "' data-chat-item='" + chats[p].id + "'><div class='badge float-right background-red' data-chat-item='" + chats[p].id + "'>#</div><div class='d-flex align-items-start' data-chat-item='" + chats[p].id + "'><img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + chats[p].friend_name + "' width='40' height='40' data-chat-item='" + chats[p].id + "'><div class='flex-grow-1 ml-3' data-chat-item='" + chats[p].id + "'>" + chats[p].friend_name + "<div class='small' data-chat-item='" + chats[p].id + "'><span class='fas fa-circle chat-online' data-chat-item='" + chats[p].id + "'></span>" + chats[p].last_message + "</div></div></div></a>")
+						}
+
+						else
+						{
+							$(".chat_List_tab").append("<a class='list-group-item list-group-item-action border-0 click_single_chat' id='chat_" + chats[p].id + "' data-chat-item='" + chats[p].id + "'><div class='badge float-right background-eee' data-chat-item='" + chats[p].id + "'></div><div class='d-flex align-items-start' data-chat-item='" + chats[p].id + "'><img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + chats[p].friend_name + "' width='40' height='40' data-chat-item='" + chats[p].id + "'><div class='flex-grow-1 ml-3' data-chat-item='" + chats[p].id + "'>" + chats[p].friend_name + "<div class='small' data-chat-item='" + chats[p].id + "'><span class='fas fa-circle chat-online' data-chat-item='" + chats[p].id + "'></span>" + chats[p].last_message + "</div></div></div></a>")
+						}
+					}
+				}
+			});
+		}
+
+		$('#message_button').on('click', function(e){
+			e.preventDefault();
+			console.log("chat reloaded message evolved +++");
+			var form_is_message = document.querySelector("#message_input");
+			if (form_is_message.value == "")
+			{
+
+			}
+
+			else
+			{
+				$.ajax({
+					type: 'GET',
+					url: "{% url 'send_message' %}",
+					data: {
+						"new_message": form_is_message.value
+					},
+
+					success: function(response)
+					{
+						form_is_message.value = ""
+						let objDiv = document.getElementById("chat-messages");
+						objDiv.scrollTop = objDiv.scrollHeight;
+					}
+				})
+			}
+		})
+
+        function load_private_chat(id_chat_unique, user_click)
+        {
+        	console.log(id_chat_unique);
+            $.ajax({
+				type: 'GET',
+				url: "{% url 'employee_private_chat' %}",
+				data: {
+					search: id_chat_unique,
+					is_click: user_click
+				},
+				success: function(response)
+				{
+					if(response.friend_profile_pic == "none")
+					{
+						new_profile = "/static/asset/img/new_person.png";
+					}
+
+					else
+					{
+						new_profile = response.friend_profile_pic
+					}
+
+					if(response.user_profile_pic == "none")
+					{
+						my_new_profile = "/static/asset/img/new_person.png";
+					}
+
+					else
+					{
+						my_new_profile = response.user_profile_pic
+					}
+
+					$("#user_special_img").html("<img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + response.friend_profile_name + "' width='40' height='40'>");
+					if(response.friend_verification_email == "true")
+					{
+						if(window.innerWidth > 991)
+						{
+							$("#warn_single_chat").css({"display": "none"});
+							$("#delete_single_chat").css({"display": "none"});
+							$("#clear_single_chat").css({"display": "none"});
+							$("#user_special_name").html(response.friend_profile_name + "<img src='/static/asset/img/verified.svg' class='rounded-circle my-0 mx-2' alt='verified' width='20' height='20'>");
+							$(".status_fellow_member").html("Administrator");
+						}
+
+						else
+						{
+							$("#clear_single_chat").css({"display": "inline-block"});
+							$("#clear_single_chat").html("<img id='shut_down_chat' src='/static/asset/img/clear_break.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+							$("#warn_single_chat").css({"display": "none"});
+							$("#delete_single_chat").css({"display": "none"});
+							$("#user_special_name").html(response.friend_profile_name + "<img src='/static/asset/img/verified.svg' class='rounded-circle my-0 mx-2' alt='verified' width='20' height='20'>");
+							$(".status_fellow_member").html("Administrator");
+						}
+					}
+
+					else
+					{
+						$("#user_special_name").html(response.friend_profile_name);
+						$("#warn_single_chat").css({"display": "inline-block"});
+						$("#delete_single_chat").css({"display": "inline-block"});
+						$("#clear_single_chat").css({"display": "inline-block"});
+						$(".status_fellow_member").html("Employee Account...");
+						if(window.innerWidth > 991)
+						{
+							$("#warn_single_chat").html("<img id='warn_single_chat_link' src='/static/asset/img/triangle.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+							$("#delete_single_chat").html("<img id='delete_single_chat_link' src='/static/asset/img/delete.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+							$("#clear_single_chat").html("<img id='clear_single_chat_link' src='/static/asset/img/clear_break.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+						}
+
+						else
+						{
+							$("#warn_single_chat").html("<img id='warn_single_chat_link' src='/static/asset/img/triangle.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+							$("#delete_single_chat").css({"background": "#222"});
+							$("#delete_single_chat").html("<img id='shut_down_chat' src='/static/asset/img/clear_break.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+							$("#clear_single_chat").html("<img id='delete_single_chat_link' src='/static/asset/img/delete.png' width='30' height='30' viewBox='0 0 0 0' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-phone feather-lg' data-chat-id='" + id_chat_unique + "'>");
+						}
+					}
+
+					$("#chat-messages").empty()
+					for(let x = 0; x < response.list_of_messages_id.length; x++)
+					{
+						console.log(response.list_of_messages_id)
+						console.log(response.list_of_messages)
+						$("#chat-messages").append("<div class='chat-message-date'><div>" + response.list_of_messages_id[x] + "</div></div>");
+
+						console.log(response.list_of_messages[response.list_of_messages_id[x]][0].messages + " hello")
+						for(let p = 0; p < response.list_of_messages[response.list_of_messages_id[x]].length; p++)
+						{
+							console.log(p + " p");
+							if(response.list_of_messages[response.list_of_messages_id[x]][p].sender == "me")
+							{
+								$("#chat-messages").append("<div class='chat-message-right pb-4'><div><img src='" + my_new_profile + "' class='rounded-circle mr-1' alt='" + response.user_profile_name + "' width='40' height='40'><div class='text-muted small text-nowrap mt-2'>" + response.list_of_messages[response.list_of_messages_id[x]][p].time_sent + "</div></div><div class='flex-shrink-1 background-red rounded py-2 px-3 mr-3'><div class='font-weight-bold mb-1'>You</div>" + response.list_of_messages[response.list_of_messages_id[x]][p].messages + "</div></div>")
+							}
+
+							else
+							{
+								$("#chat-messages").append("<div class='chat-message-left pb-4'><div><img src='" + new_profile + "' class='rounded-circle mr-1' alt='" + response.friend_profile_name + "' width='40' height='40'><div class='text-muted small text-nowrap mt-2'>" + response.list_of_messages[response.list_of_messages_id[x]][p].time_sent + "</div></div><div class='flex-shrink-1 background-black rounded py-2 px-3 mr-3'><div class='font-weight-bold mb-1'>" + response.friend_profile_name + "</div>" + response.list_of_messages[response.list_of_messages_id[x]][p].messages + "</div></div>")
+							}
+						}
+					}
+					let objDiv = document.getElementById("chat-messages");
+					objDiv.scrollTop = objDiv.scrollHeight;
+				}
+			});
+        }
+
+		function close_confirm()
+		{
+			let handler = document.querySelector("#confirm");
+			handler.style = "display: none !important;";
+		}
+
+		$(document).on('click', '#delete_single_chat_link', function(e){
+				let handler = document.querySelector("#confirm");
+				handler.style = "display: flex !important;";
+				$("#confirm").html("<h3>DELETE!</h3><div class='message'>Are you sure you want to delete conversation with this user?</div><span><a onClick='close_confirm()'>cancel</a><a id='delete_single_entity' data-chat-id='" + e.target.getAttribute('data-chat-id') + "'>Delete</a></span>");
+		});
+
+		$(document).on('click', '#clear_single_chat_link', function(e){
+				let handler = document.querySelector("#confirm");
+				handler.style = "display: flex !important;";
+				$("#confirm").html("<h3>CLEAR!</h3><div class='message'>Are you sure you want to clear conversation with this user?</div><span><a onClick='close_confirm()'>cancel</a><a id='clear_single_entity' data-chat-id='" + e.target.getAttribute('data-chat-id') + "'>Clear</a></span>");
+		});
+
+		$(document).on('click', '#warn_single_chat_link', function(e){
+				let handler = document.querySelector("#confirm");
+				handler.style = "display: flex !important;";
+				$("#confirm").html("<h3>REPORT!</h3><div class='message'>Are you sure you want to report user? A review would be carried out by our team and effective action taken by us to penalized user</div><span><a onClick='close_confirm()'>cancel</a><a id='warn_single_entity' data-chat-id='" + e.target.getAttribute('data-chat-id') + "'>Report</a></span>");
+		});
+
+		$(document).on('click', '#shut_down_chat', function(e){
+			$(".chat-cardio").css({"display": "none"})
+			$(".chat-list-tab").css({"display": "flex", "flex-direction": "column"})
+		});
+
+		$(document).on('click', '#delete_single_entity', function(e){
+			$.ajax({
+				type: 'GET',
+				data: {
+					chat_id: e.target.getAttribute('data-chat-id'),
+					},
+				url: "{% url 'employee_chat_delete' %}",
+				success: function(response)
+				{
+					close_confirm();
+					get_chat();
+				}
+			});
+		});
+
+		$(document).on('click', '#clear_single_entity', function(e){
+			$.ajax({
+				type: 'GET',
+				data: {
+					chat_id: e.target.getAttribute('data-chat-id'),
+					},
+				url: "{% url 'employee_chat_clear' %}",
+				success: function(response)
+				{
+					close_confirm();
+					load_private_chat(e.target.getAttribute('data-chat-id'), "none");
+					reload_chat_list();
+				}
+			});
+		});
+
+		$(document).on('click', '#warn_single_entity', function(e){
+			$.ajax({
+				type: 'GET',
+				data: {
+					chat_id: e.target.getAttribute('data-chat-id'),
+					},
+				url: "{% url 'employee_chat_warn' %}",
+				success: function(response)
+				{
+					$("#confirm").html("<h3>REPORTED!</h3><div class='message'>User has been reported and conversations are currently being reviewed.</div><span><a onClick='close_confirm()'>Close</a></span>");
+				}
+			});
+		});
+
+		function get_profile()
+			{
+				empty_handler();
+				loader_handler();
+				setTimeout(function()
+				{
+					let profile = document.querySelector(".profile");
+					profile.style = "display: flex !important;";
+				}, 100);
+
+				$.ajax({
+					type: 'GET',
+					url: "{% url 'employer_profile' %}",
+					data: {},
+					success: function(response)
+					{
+						loader_handler();
+						setTimeout(function()
+						{
+							if(response.profile_picture == "none")
+							{
+								$(".profpic").html('<img src="/static/asset/img/person.png" class="onep"><img src="/static/asset/img/new_person.png" class="twop"><form class="threep" action="upload_profile_pic" id="three_form" method="POST" enctype="multipart/form-data" action="upload_image_background">{% csrf_token %}<label for="background_img"><input type="file" accept="image/*" name="image_background" id="background_img"><img src="/static/asset/img/photo-camera.png"></label></form>');
+							}
+							else
+							{
+								$(".profpic").html('<img src="/static/asset/img/person.png" class="onep"><img src=' + response.profile_picture + ' class="twop"><form class="threep" action="upload_profile_pic" id="three_form" method="POST" enctype="multipart/form-data" action="upload_image_background">{% csrf_token %}<label for="background_img"><input type="file" accept="image/*" name="image_background" id="background_img"><img src="/static/asset/img/photo-camera.png"></label></form>');
+							}
+
+							let new_x_input = document.getElementById("background_img");
+
+							new_x_input.addEventListener("change", (event)=>{
+								 let form = document.getElementById("three_form");
+								 form.submit();
+								 });
+
+							$(".proftit h3").html(response.profile_name);
+							$(".proftit p").html(response.profile_title);
+
+							$(".userContact").html("<img src='/static/asset/img/phone.svg'>" + response.profile_contact + "");
+							$(".userEmail").html("<img src='/static/asset/img/envelope-plus.svg'>" + response.profile_email + "");
+							$(".userGender").html("<img src='/static/asset/img/person-fill.svg'>" + response.profile_gender + "");
+							$(".userLocation").html("<img src='/static/asset/img/geo-alt-fill.svg'>" + response.profile_location + "");
+							$(".userDOB").html("<img src='/static/asset/img/calendar2-date.svg'>" + response.profile_birth_date + "");
+
+							$(".thirdsec p").html(response.profile_bio);
+							if(response.profile_bio_length < 5)
+							{
+								$(".thirdsec p").html("<h2 class='no_item'>You do not have a bio available.</h2>");
+							}
+						}, 500);
+					}
+				})
+			}
+	</script>
+</body>
+</html>

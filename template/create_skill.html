@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/create_skill.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/login">Get Started</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+		<a href="/">Home</a>
+		<a href="/employee_signup">JobFind</a>
+		<a href="/employer_signup">Company</a>
+		<a href="/carrier_advice">Carrier</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</section>
+    <section class="main">
+		<div class="single_job_apply">
+			<div class="single_job_tab form_class">
+				<h1>ADD A Skill</h1>
+				<form method="POST" action="create_skill">
+					{% csrf_token %}
+					<input type="text" name="skill" placeholder="Skill: EX: Banking" required>
+					<input type="number" name="proficiency" placeholder="Years: EX: 5" required>
+					<button type="submit">Add Skill</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<img src="{% static './img/Caleblogo.png' %}" class="mainbackground">
+    <script type="text/javascript">
+		var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "95%", "width": "100%", "position": "fixed", "left": "0px", "z-index": "5", "display": "flex"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+
+		});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 930)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+			});
+		});
+    </script>
+</body>

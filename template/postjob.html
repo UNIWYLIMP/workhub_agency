@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/postjob.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/login">Get Started</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+		<a href="/">Home</a>
+		<a href="/employee_signup">JobFind</a>
+		<a href="/employer_signup">Company</a>
+		<a href="/carrier_advice">Carrier</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</section>
+    <section class="main">
+		<div class="single_job_apply">
+			<div class="single_job_tab form_class">
+				<h1 class='tora'>
+					<span>Create Job Offer</span>
+					<span><a href='/dashboard'>(exit)</a></span>
+				</h1>
+				<form method="POST" action="employer_create_job">
+				{% csrf_token %}
+					<input type="text" name="jobTitle" placeholder="Job Title: software developer">
+					<span>
+						<span class="single_radio">
+							On-Site
+							<input type="radio" name="jobType" value="on-site" checked>
+						</span>
+						<span class="single_radio">
+							Hybrid
+							<input type="radio" name="jobType" value="hybrid">
+						</span>
+						<span class="single_radio">
+							Remote
+							<input type="radio" name="jobType" value="remote">
+						</span>
+					</span>
+					<textarea placeholder="Job Description:" name="jobDescription"></textarea>
+					<input type="text" name="jobPay" placeholder="Jop Pay: 13000$">
+					<input type="text" name="jobLocation" placeholder="Jop Location: Florida, USA. ">
+					<input type="text" name="jobExternalLink" style="display: none;" placeholder="External Job Link: " value="External Job Link: " id="bind">
+					<div class="ken">
+						<input type="checkbox" name="jobExternal" value="true" onclick="clearContents(this);">
+						<label>External Hosted Job.</label>
+					</div>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+    </section>
+	<img src="{% static './img/Caleblogo.png' %}" class="mainbackground">
+    <script type="text/javascript">
+		var noda = 1;
+	   	function clearContents(element)
+	   	{
+	   		if (noda == 0){
+	   			var truth = document.getElementById('bind');
+	    		truth.style = 'display: none;';
+	    		noda ++;
+	   		}
+	   		else if(noda == 1)
+	    	{
+	    		var truth = document.getElementById('bind');
+	    		truth.style = 'display: block;';
+	    		noda --;
+	    	}
+	   	}
+		var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "95%", "width": "100%", "position": "fixed", "left": "0px", "z-index": "5", "display": "flex"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+
+		});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 930)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+			});
+		});
+    </script>
+</body>

@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/create_requirement.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/login">Get Started</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+		<a href="/">Home</a>
+		<a href="/employee_signup">JobFind</a>
+		<a href="/employer_signup">Company</a>
+		<a href="/carrier_advice">Carrier</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</section>
+    <section class="main">
+		<div class="single_job_apply">
+			<div class="single_job_tab form_class">
+				<h1 class='tora'>
+					<span>Add Job Requirements</span>
+					<span><a href='/dashboard'>(exit)</a></span>
+				</h1>
+				<span id="add_new" class="next_gen">(add)</span>
+				<form method="GET" action="createRequirements" id="form_bucket">
+				</form>
+				<div class="next_gen">
+					<button id="next_button">NEXT</button>
+				</div>
+
+			</div>
+		</div>
+    </section>
+	<img class="mainbackground">
+	<script type="text/javascript">
+
+		var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "95%", "width": "100%", "position": "fixed", "left": "0px", "z-index": "5", "display": "flex"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+
+		});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 930)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+			});
+		});
+
+		var counter_x = 0;
+		var counter_list = []
+		$("#add_new").on("click", function(e){
+			counter_x += 1;
+			$("#form_bucket").append("<span id='rnp" + counter_x + "'><input type='text' name='category' id='inp" + counter_x + "' placeholder='Add a requirement'><p id='remove_id' class='remove_id' data-item-input=" + counter_x + ">cancel<p></span>");
+			counter_list.push(counter_x);
+			console.log(counter_x)
+			console.log(counter_list)
+			if(counter_x >= 1)
+			{
+				let remove = document.querySelectorAll("#remove_id");
+				remove.forEach(elem => elem.addEventListener("click", newly));
+			}
+		});
+
+		function newly(e){
+			let input_id = "#inp" + e.target.getAttribute("data-item-input");
+			let input_id_x = "#rnp" + e.target.getAttribute("data-item-input");
+			$(input_id).css({"display": "none"});
+			$(input_id_x).css({"display": "none"});
+
+			let updated_list = [];
+			for(let i = 0; i < counter_list.length; i++)
+			{
+					if (counter_list[i] != e.target.getAttribute("data-item-input"))
+				{
+					updated_list.push(counter_list[i])
+				}
+				else
+					{
+
+					}
+			}
+			counter_list = updated_list;
+			}
+		$("#form_bucket").on("submit", function(e){
+			e.preventDefault();
+		});
+		$("#next_button").on("click", function(e){
+		input_list = ""
+		for(let i = 0; i < counter_list.length; i++)
+		{
+			let input_id = "#inp" + counter_list[i]
+			let input_value = document.querySelector(input_id);
+			input_list += input_value.value + "$"
+		}
+
+		$.ajax({
+			type: "GET",
+			url: "{% url 'create_requirement' %}",
+			data: {
+				input_bucket: input_list
+				},
+			success: function(response)
+			{
+				location.href =  "/create_roles";
+			}
+			});
+		});
+	</script>
+</body>

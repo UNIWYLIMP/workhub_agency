@@ -1,0 +1,176 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/viewprofile.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations">
+			<a href="/">Home</a>
+			<a href="/employee_signup">Jobfind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/logout">LOGOUT</a>
+			</span>
+		</div>
+	</nav>
+	<section class="main">
+		<div class="profile">
+			<div class="section_profile">
+				<div class="firstsec">
+					<div class="profpic">
+					</div>
+					<div class="proftit">
+						<h3>...........</h3>
+						<p>....... ..... .. .....</p>
+					</div>
+					<div class="profhans">
+						<h3>Primary Info</h3>
+						<div>
+							<span class="flamejaws userLocation"><img src="{% static './asset/img/geo-alt-fill.svg' %}"> ....., .......</span>
+							<span class="flamejaws userGender"><img src="{% static './asset/img/person-fill.svg' %}"> ....</span>
+							<span class="flamejaws userEmail"><img src="{% static './asset/img/envelope-plus.svg' %}"> ........</span>
+						</div>
+						<div>
+							<span class="flamejaws userContact"><img src="{% static './asset/img/phone.svg' %}"> ........</span>
+							<span class="flamejaws userDOB"><img src="{% static './asset/img/calendar2-date.svg' %}">......</span>
+							<span class="flamejaws"></span>
+						</div>
+					</div>
+				</div>
+				<div class="thirdsec">
+					<span class="blight">
+						<h3>About</h3>
+						<div class="rogo">
+						</div>
+					</span>
+					<p></p>
+				</div>
+				<div class="fifthsec">
+				</div>
+				<div class="lastv">
+						User Skill Set
+				</div>
+				<div class="sevensec">
+				</div>
+				<div class="lastv">
+						User Experience Set
+				</div>
+				<div class="sixthsec">
+				</div>
+				<div class="lastv">
+						User Education Set
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id="ready">
+		<h3>MESSAGE!</h3>
+		<div class="message">
+			{{message}}
+		</div>
+		<button onclick="close_pop_up()">Upload</button>
+	</div>
+	<a id="blink_twice" onload="alert('what is supp')" data-user-id={{user_id}}>a</a>
+	<h3 class="support_message">Your Device Screen Size Is Not Supported. Try a larger screen!</h3>
+	<script type="text/javascript">
+
+		window.onload = function(){
+			deep();
+		}
+
+		function deep()
+		{
+			let deep_shit = document.getElementById("blink_twice");
+			let user_id = deep_shit.dataset.dataUserId;
+			get_profile(user_id);
+		}
+
+		function get_profile(user_id)
+			{
+				let profile = document.querySelector(".profile");
+				profile.style = "display: flex !important;";
+				$.ajax({
+					type: 'GET',
+					url: "{% url 'get_profile' %}",
+					data: {user_id: user_id},
+					success: function(response)
+					{
+						if(response.profile_picture == "none")
+						{
+							$(".profpic").html("<img src='/static/asset/img/person.png' %}' class='onep'><img src='/static/asset/img/new_person.png' class='twop'>");
+						}
+						else
+						{
+							$(".profpic").html("<img src='/static/asset/img/person.png' %}' class='onep'><img src='" + response.profile_picture + "' class='twop'>");
+						}
+
+						$(".proftit h3").html(response.profile_name);
+						$(".proftit p").html(response.profile_title);
+						$(".userContact").html("<img src='/static/asset/img/phone.svg'>" + response.profile_contact + "");
+						$(".userEmail").html("<img src='/static/asset/img/envelope-plus.svg'>" + response.profile_email + "");
+						$(".userGender").html("<img src='/static/asset/img/person-fill.svg'>" + response.profile_gender + "");
+						$(".userLocation").html("<img src='/static/asset/img/geo-alt-fill.svg'>" + response.profile_location + "");
+						$(".userDOB").html("<img src='/static/asset/img/calendar2-date.svg'>" + response.profile_birth_date + "");
+
+						$(".thirdsec p").html(response.profile_bio);
+						if(response.profile_bio_length < 5)
+						{
+							$(".thirdsec p").html("<h2 class='no_item'>You do not have a bio available.</h2>");
+						}
+
+						$(".fifthsec").html("<span class='blight'><h3>Skills</h3><div class='xrogo'></div></span>")
+						for(let x = 0; x < response.skills.length; x++)
+						{
+							$(".fifthsec").append("<div class='skillset'><img src='/static/asset/img/front.svg'><span><h4>" + response.skills[x].skill_set + "</h4><p>" + response.skills[x].proficiency + " experience of proficiency</p></span></div>");
+						}
+
+						if(response.skills.length == 0)
+						{
+							$(".fifthsec").append("<h2 class='no_item'>You have no skill available</h2>");
+						}
+
+						$(".sevensec").html("<span class='xblight'><h3>Past Experience</h3><div class='xxrogo'></div></span>");
+						for(let x = 0; x < response.experiences.length; x++)
+						{
+							$(".sevensec").append("<div class='fxskillset_prof'><div class='sevila_prof'><img src='/static/asset/img/folioki_logo.jpg'><span><h4>" + response.experiences[x].experience_title + "(" + response.experiences[x].experience_employment_type + ")</h4><p>" + response.experiences[x].experience_organization_name + "</p><p><small>" + response.experiences[x].experience_location + "</small></p><p><small>" + response.experiences[x].experience_start_date + " - " + response.experiences[x].experience_close_date + "</small></p></span></div><article class='lorel_prof'>" + response.experiences[x].experience_description + "</article></div>")
+						}
+
+						if(response.experiences.length == 0)
+						{
+							$(".sevensec").append("<h2 class='no_item'>You have no experiences available</h2>");
+						}
+
+						$(".sixthsec").html("<span class='xblight'><h3>Education</h3><div class='xxrogo'></div></span>");
+						for(let x = 0; x < response.educations.length; x++)
+						{
+							$(".sixthsec").append("<div class='xskillset'><img src='/static/asset/img/award.svg'><span><h4>" + response.educations[x].school + "</h4><p>" + response.educations[x].degree + " - " + response.educations[x].field + "</p><p><small>" + response.educations[x].startDate + " - " + response.educations[x].endDate + "</small></p></span></div>")
+						}
+
+						if(response.educations.length == 0)
+						{
+							$(".sixthsec").append("<h2 class='no_item'>You have no educations available</h2>");
+						}
+					}
+				})
+			}
+	</script>
+</body>
+</html>

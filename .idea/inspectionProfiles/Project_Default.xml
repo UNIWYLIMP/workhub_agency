@@ -1,0 +1,87 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="8">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="form" />
+            <item index="7" class="java.lang.String" itemvalue="p" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="django" />
+            <item index="1" class="java.lang.String" itemvalue="pandas" />
+            <item index="2" class="java.lang.String" itemvalue="pytz" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N812" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="portapp.models.Profile.objects" />
+          <option value="portapp.models.Certifications.objects" />
+          <option value="portapp.models.Education.objects" />
+          <option value="portapp.models.Skill.objects" />
+          <option value="portapp.models.ProjectPlatform.objects" />
+          <option value="portapp.models.Experience.objects" />
+          <option value="calebapp.models.Book.objects" />
+          <option value="calebapp.models.Profile.objects" />
+          <option value="calebapp.models.PeerRequest.objects" />
+          <option value="calebapp.models.Podcast.objects" />
+          <option value="calebapp.models.Registration.objects" />
+          <option value="calebapp.models.Receipt.objects" />
+          <option value="calebapp.models.Chat.objects" />
+          <option value="calebapp.models.News.objects" />
+          <option value="calebapp.models.Group.objects" />
+          <option value="calebapp.models.Spreadsheet.id" />
+          <option value="calebapp.models.Spreadsheet.objects" />
+          <option value="calebapp.models.Chat.id" />
+          <option value="django.db.models.fields.DateTimeField.astimezone" />
+          <option value="terapil.terapil.urls.kanel" />
+          <option value="virtualbase.models.Contact.objects" />
+          <option value="dict.username" />
+          <option value="virtualbase.models.RecentTrends.objects" />
+          <option value="virtualbase.models.UserStatistic.objects" />
+          <option value="virtualbase.models.WeeklyActivity.objects" />
+          <option value="virtualbase.models.MondayActivity.objects" />
+          <option value="virtualbase.models.TuesdayActivity.objects" />
+          <option value="virtualbase.models.WednesdayActivity.objects" />
+          <option value="virtualbase.models.ThursdayActivity.objects" />
+          <option value="virtualbase.models.FridayActivity.objects" />
+          <option value="virtualbase.models.SaturdayActivity.objects" />
+          <option value="virtualbase.models.SundayActivity.objects" />
+          <option value="random.random.randint" />
+          <option value="api.models.Profile.objects" />
+          <option value="api.models.Education.objects" />
+          <option value="api.models.Skill.objects" />
+          <option value="api.models.Experience.objects" />
+          <option value="api.models.JobCategory.objects" />
+          <option value="api.models.JobPost.objects" />
+          <option value="api.models.JobNotification.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

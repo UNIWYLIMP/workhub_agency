@@ -1,0 +1,788 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition: all 0.6s ease-in-out;
+}
+
+body
+{
+   font-family: 'Montserrat', sans-serif;
+   font-size: 12px;
+   width: 100%;
+   overflow-y: hidden;
+   background: url("../asset/img/nediox.png");
+   background-size: unset;
+   background-position: center;
+   background-color: fff;
+   color: #fff;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   max-height: 100vh;
+   overflow-y: hidden;
+}
+
+@font-face
+{
+	font-family: "Montserrat-bold";
+	src: url(../asset/fonts/Montserrat-ExtraBold.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat-Black";
+	src: url(../asset/fonts/Montserrat-Black.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat";
+	src: url(../asset/fonts/Montserrat-Regular.ttf) format('woff2');
+}
+
+@font-face
+{
+    font-family: "Sunata";
+    src: url(../asset/fonts/Montserrat-Italic.ttf) format('woff2');
+}
+
+@font-face
+{
+    font-family: "Montserrat-default";
+    src: url(../asset/fonts/Montserrat-Medium.ttf) format('woff2');
+}
+
+@font-face
+{
+	font-family: "Montserrat-regular-bold";
+	src: url(../asset/fonts/Montserrat-SemiBold.ttf) format('woff2');
+}
+
+
+/*
+	General Styling
+*/
+
+a 
+{
+	text-decoration: none;
+	color: black;
+}
+
+h1
+{
+	font-family: 'Montserrat-bold';
+	font-size: 30px;
+	padding: 2px 30px;
+	text-align: center;
+}
+
+h3
+{
+	font-family: 'Montserrat-bold';
+	padding: 30px 0px 20px;
+	font-size: 14px;
+	text-align: left;
+}
+
+p
+{
+	text-align: start;
+	padding: 10px 0px;
+}
+
+.red 
+{
+	color: red;
+}
+
+nav
+{
+	height: 62.5px;
+	width: 100%;
+	margin: auto;
+	padding: 0px 10%;
+	box-shadow: 0px 0px 5px black;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background: black;
+	color: white;
+	position: fixed;
+	top: 0px;
+}
+
+nav div:nth-child(1)
+{
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+nav div:nth-child(1) h1
+{
+    padding: 0;
+    margin: 0;
+}
+
+nav div:nth-child(2)
+{
+	flex: 4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav div:nth-child(2) a
+{
+	margin: 0px 16.5px;
+	font-size: 11.5px;
+	color: white;
+}
+
+nav div:nth-child(2) a:hover
+{
+	color: red;
+}
+
+nav div:nth-child(3)
+{
+	flex: 2;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	color: white;
+}
+
+nav div:nth-child(3) a
+{
+	margin: 0px 7px;
+}
+
+.extra a
+{
+    color: white;
+}
+
+.extra a img
+{
+    width: 20px;
+    height: 20px;
+}
+
+.classico_button
+{
+	width: auto;
+	height: 100%;
+	display: flex;
+	padding-left: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.classico_button a
+{
+	padding: 13.5px 25px;
+	color: white;
+	background-color: red;
+	font-family: 'Montserrat-regular-bold';
+	border-radius: 5px;
+}
+
+.classico_button a:hover
+{
+	color: black;
+	background-color: white;
+}
+
+.menu_tab
+{
+    display: none;
+    background: transparent;
+    min-width: 30px;
+    min-height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.navigation_drop_down
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0%;
+    background: white;
+    position: fixed;
+    top: 62.5px;
+    left: -100%;
+	transition: all 0.6s cubic-bezier(1,-0.82, 0, 2.03);
+	z-index: 20;
+}
+
+.navigation_drop_down a
+{
+    flex: 1;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat-regular-bold";
+    font-size: 12px;
+}
+
+.navigation_drop_down a:hover
+{
+    color: white;
+    background: red;
+}
+
+#hideAll
+{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+}
+
+.main
+{
+    height: 91vh;
+    width: 100%;
+    margin: auto;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 11vh;
+    z-index: 3;
+}
+
+.mainbackground
+{
+    width: 400px;
+    height: 350px;
+    position: fixed;
+    z-index: 1;
+    left: 35%;
+    top: 20%;
+    opacity: 0.025;
+    border-radius: 100px;
+}
+
+.form_class
+{
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-width: 340px;
+    height: auto;
+    padding: 30px 40px 30px;
+    background-color: black;
+    border: 0px solid black;
+    box-shadow: 0 0 7px black;
+    border-radius: 15px;
+}
+
+.form_class h3
+{
+    font-size: 23px;
+    font-family: 'Montserrat-Black';
+    padding: 0px 0px 3.5px;
+    color: red;
+    text-align: center;
+}
+
+.form_class p
+{
+    padding: 0px 0px 15px;
+    text-align: center;
+    font-family: 'Montserrat-default';
+}
+
+.form_class a
+{
+    padding: 10px 0px;
+    color: white;
+}
+
+.form_class a:hover
+{
+    color: white;
+}
+
+.form_class .already:hover
+{
+    color: red;
+}
+
+.form_class form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    padding: 5px 20px;
+}
+
+.form_class form span
+{
+    width: 95%;
+    display: flex;
+}
+
+.form_class form input
+{
+    width: 95%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form select
+{
+    width: 45%;
+    height: 45px;
+    padding: 5px 10px;
+    margin: 5px 0px 5px 5px;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class form button
+{
+    width: 95%;
+    height: 40px;
+    padding: 5px;
+    margin: 5px 0px;
+    border-radius: 7.5px;
+    border: 2px solid red;
+    background: red;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    font-family: 'Montserrat-regular-bold';
+}
+
+.form_class form input:focus
+{
+    outline: none !important;
+    border: 2px solid red !important;
+    box-shadow: 0 0 7px red !important;
+}
+
+.form_class_div
+{
+    display: flex;
+    height: auto;
+    padding: 10px 10px;
+    width: 90%;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 7.5px;
+    border: 2px solid black;
+}
+
+.form_class_div input
+{
+    width: 15px !important;
+    height: 10px !important;
+    padding: 0px;
+    margin: 0px 10px 0px 3px!important;
+    border-radius: 7.5px;
+}
+
+.form_class_div form input:focus
+{
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+
+}
+
+.gethere
+{
+    width: 100% !important;
+}
+
+.support_message
+{
+   display: none;
+}
+
+@media(max-width: 1280px)
+{
+    body
+    {
+
+    }
+
+    nav
+    {
+        padding: 0px 5%;
+    }
+
+    nav a
+    {
+        margin: 0px 15px;
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 35%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 90%;
+        text-align: right;
+    }
+
+    .classico_button a
+    {
+        padding: 13.5px 15px;
+        margin: 0px 5px;
+        color: white;
+        background-color: red;
+        font-family: 'Montserrat-regular-bold';
+        border-radius: 5px;
+    }
+
+    .navigation_drop_down
+    {
+        display: flex;
+        width: 100%;
+        height: 0%;
+    }
+ }
+
+@media(max-width: 1100px)
+{
+    body
+    {
+    }
+
+    nav
+    {
+        padding: 0px 5%;
+    }
+
+    nav a
+    {
+        margin: 0px 15px;
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 35%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 90%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav div:nth-child(2) a
+    {
+        margin: 0px 12.5px;
+        font-size: 11.5px;
+        color: white;
+    }
+
+    .classico_button
+    {
+        width: 100px;
+        height: 100%;
+        display: flex;
+        padding-left: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .classico_button a
+    {
+        padding: 13.5px 7.5px;
+        color: white;
+        background-color: red;
+        font-family: 'Montserrat-regular-bold';
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .navigation_drop_down
+    {
+        display: flex;
+    }
+}
+
+ @media(max-width: 930px)
+ {
+    nav
+    {
+        padding: 0px 1.5%;
+    }
+
+    nav a
+    {
+        margin: 0px 7.5px;
+        font-family: 'Montserrat-regular-bold';
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 30%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 40%;
+        text-align: right;
+    }
+
+    nav div:nth-child(3)
+    {
+        width: 30%;
+        text-align: right;
+    }
+
+    .nav_old
+    {
+        display: none;
+    }
+
+    .nav_old a
+    {
+        display: none;
+    }
+
+    .menu_tab
+    {
+        display: flex;
+        background: transparent;
+        min-width: 25px;
+        min-height: 25px;
+        max-width: 25px;
+        max-height: 25px;
+    }
+
+    .extra a img
+    {
+        width: 20px;
+        height: 20px;
+    }
+
+    .classico_button
+    {
+        width: 120px;
+        height: 100%;
+        display: flex;
+        padding-left: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .classico_button a
+    {
+        padding: 13.5px 10px;
+        width: inherit;
+        color: white;
+        background-color: red;
+        font-family: 'Montserrat-regular-bold';
+        border-radius: 5px;
+        text-align: center;
+    }
+ }
+
+ @media(max-width: 785px) {
+    *
+    {
+        transition: all 0s ease-in-out;
+    }
+
+    body
+    {
+    }
+
+    nav
+    {
+        padding: 0px 1.5%;
+        position: fixed;
+    }
+
+    nav a
+    {
+        margin: 0px 4.5px;
+        font-family: 'Montserrat-regular-bold';
+        font-size: smaller;
+    }
+
+    nav div:nth-child(1)
+    {
+        width: 25%;
+    }
+
+    nav div:nth-child(2)
+    {
+        width: 90%;
+        text-align: right;
+    }
+ }
+
+ @media(max-width: 650px) {
+    *
+    {
+        transition: all 0.6s ease-in-out;
+    }
+
+    nav
+    {
+        width: 100%;
+        padding: 0px 1.5%;
+    }
+
+    .nav_small
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: 75%;
+    }
+
+    .nav_small img
+    {
+        width: 30px;
+        height: 30px;
+        box-size: cover;
+    }
+
+    .nav_new
+    {
+        display: none;
+    }
+
+    .nav_old
+    {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 11.5vh;
+        left: 0vh;
+        width: 100%;
+        height: auto;
+        box-shadow: rgba(11, 10, 10, 1.0) 1px 1px 2px;
+        z-index: 10;
+    }
+
+    .nav_old a
+    {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid #1e202b;
+        font-family: 'Montserrat-regular-bold';
+    }
+ }
+
+ @media(max-width: 510px) {
+    nav
+    {
+        width: 100%;
+        padding: 0px 1.5%;
+    }
+
+    .nav_small a
+    {
+        display: none;
+    }
+
+    .classico_button
+    {
+        display: none;
+    }
+
+    .logo h1
+    {
+        font-size: 26px;
+    }
+
+    .support_message
+    {
+        display: none;
+    }
+ }
+
+ @media(max-width: 450px)
+ {
+    .form_class
+    {
+        width: 80%;
+        padding: 20px 25px 15px;
+    }
+ }
+
+ @media(max-width: 380px)
+ {
+    .form_class
+    {
+        min-width: 70%;
+        padding: 20px 20px 15px;
+    }
+ }
+
+ @media(max-width: 320px)
+ {
+    .social_social
+    {
+        display: none;
+    }
+
+    .form_class
+    {
+        min-width: 90%;
+        padding: 20px 15px 20px;
+    }
+ }
+
+ @media(max-width: 265px) {
+    body
+    {
+        display: none;
+    }
+
+    .support_message
+    {
+        display: flex;
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #1e202b;
+        color: white;
+        z-index: 20;
+    }
+ }

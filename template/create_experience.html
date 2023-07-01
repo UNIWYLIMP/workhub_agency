@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/create_experience.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/login">Get Started</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+		<a href="/">Home</a>
+		<a href="/employee_signup">JobFind</a>
+		<a href="/employer_signup">Company</a>
+		<a href="/carrier_advice">Carrier</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</section>
+    <section class="main">
+		<div class="single_job_apply">
+			<div class="single_job_tab form_class">
+				<h1>ADD A NEW EXPERIENCE</h1>
+				<form method="POST" action="create_experience">
+					{% csrf_token %}
+					<input type="text" name="jobtitle" required placeholder="Ex: Clerical Financial Accountant">
+					<select required name="employmentType">
+						<option value="Full-time">Full-time</option>
+						<option value="Part-time">Part-time</option>
+						<option value="Self-employed">Self-employed</option>
+						<option value="Freelance">Freelance</option>
+						<option value="Contract">Contract</option>
+						<option value="Internship">Internship</option>
+						<option value="Apprencticeship">Apprencticeship</option>
+						<option value="Seasonal">Seasonal</option>
+					</select>
+					<input type="text" required name="companyName" placeholder="Ex: Microsoft">
+					<textarea name="description" placeholder="About Experience:"></textarea>
+					<input type="text" name="location" required placeholder="Ex: Newyork, US">
+					<input type="date" name="start" required placeholder="start date">
+					<input type="date" name="end" placeholder="end date" id="bind">
+					<div>
+						<input type="checkbox" name="currentlyWorking" value="true" onclick="clearContents(this);">
+						<label>still currently working there.</label>
+					</div>
+					<button type="submit">SUBMIT</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<img src="{% static './img/Caleblogo.png' %}" class="mainbackground">
+    <script type="text/javascript">
+		var noda = 0;
+	    function clearContents(element){
+	   		if (noda == 0){
+	   		var truth = document.getElementById('bind');
+	   		truth.style = 'display: none;';
+	    	noda ++;
+	    	}
+	   		else if(noda == 1)
+	   		{
+	    		var truth = document.getElementById('bind');
+		   		truth.style = 'display: block;';
+	    		noda --;
+	   		}
+	    }
+
+	    var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "95%", "width": "100%", "position": "fixed", "left": "0px", "z-index": "5", "display": "flex"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+
+		});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 930)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+			});
+		});
+    </script>
+</body>

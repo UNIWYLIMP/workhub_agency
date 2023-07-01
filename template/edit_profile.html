@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scalable=yes">
+	<title>Work Hub</title>
+	<link rel="stylesheet" type="text/css" href="{% static './css/edit_profile.css' %}">
+	<script type="text/javascript" src="{% static './js/jquery-1.9.1.min.js' %}"></script>
+</head>
+<body>
+	<nav>
+		<div class="logo">
+			<h1><span class="red">WORK</span>HUB</h1>
+		</div>
+		<div class="navigations nav_old">
+			<a href="/">Home</a>
+			<a href="/employee_signup">JobFind</a>
+			<a href="/employer_signup">Company</a>
+			<a href="/carrier_advice">Carrier</a>
+			<a href="/about">About</a>
+			<a href="/contact">Contact</a>
+		</div>
+		<div class="extra">
+			<a href="#" class="social_social"><img src="{% static './asset/img/whatsapp_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/instagram_1.png' %}"></a>
+			<a href="#" class="social_social"><img src="{% static './asset/img/facebook.png' %}"></a>
+			<span class="classico_button">
+				<a href="/login">Get Started</a>
+			</span>
+			<a href="#" id="menu_drop"><img src="{% static './asset/img/menu_tab.png' %}" class="menu_tab"></a>
+		</div>
+	</nav>
+	<section class="navigation_drop_down">
+		<a href="/">Home</a>
+		<a href="/employee_signup">JobFind</a>
+		<a href="/employer_signup">Company</a>
+		<a href="/carrier_advice">Carrier</a>
+		<a href="/about">About</a>
+		<a href="/contact">Contact</a>
+	</section>
+    <section class="main">
+		<div class="single_job_apply">
+			<div class="single_job_tab form_class">
+				<h1 class='tora'>
+					<span>Edit Profile</span>
+					<span><a href='/dashboard'>(dashboard)</a></span>
+				</h1>
+				<div class="lastz">
+				<h2>{{profile.userFullName}}</h2>
+				</div>
+				<div class="lastv"><a href="/edit_bio">(Edit Primary Info)</a></div>
+
+				<div class="lastz">
+				<h2>{{profile.userEmail}}</h2>
+				</div>
+				<div class="lastv"><a href="/edit_bio">(Edit Primary Info)</a></div>
+
+				<div class="lastz">
+					{% if profile_resume == "none" %}
+					<h2><strong>RESUME:</strong> You have not uploaded a resume</h2>
+					{% else %}
+					<h2><strong>RESUME:</strong> <a target="_blank" href={{profile_resume}} style="color: red;">resume file</a></h2>
+					{% endif %}
+				</div>
+				<div class="lastv"><a href="/upload_resume">(Upload Resume)</a></div>
+
+				<div class="lastx">
+					<div><p><strong>BIO: </strong>{{profile.userBio}}</p></div>
+					<div><p><strong>Contact:</strong> {{profile.userContact}}</p></div>
+				</div>
+				<div class="lastv"><a href="/edit_bio">(Edit Primary Info)</a></div>
+
+				<div>
+					<div class="lastk">
+						<h1><span>Education</span><span><a href="/create_education">(add)</a></span></h1>
+					</div>
+					{% for x in educations %}
+					<div class="tango"><p>{{x.degree}} in {{x.field}} at {{x.school}}</p><a href="{% url 'deleteEducation' x.id %}"><img src="{% static './asset/img/bank.svg' %}"></a></div>
+					{% endfor %}
+					{% if education_message == "No Education Available!" %}
+					<div class="tango"><p>NO EDUCATION AVAILABLE</p></div>
+					{% endif %}
+				</div>
+				<div class="lastv"><a href="/create_education">(Add An Education)</a></div>
+
+				<div>
+					<div class="lastk">
+						<h1><span>Experience</span><span><a href="/create_experience">(add)</a></span></h1>
+					</div>
+					{% for x in experiences %}
+					<div class="tango"><p>{{x.Experience_Employment_Type}} {{x.Experience_Title}} at {{x.Experience_Organization_Name}}</p><a href="{% url 'deleteExperience' x.id %}"><img src="{% static './asset/img/bank.svg' %}"></a></div>
+					{% endfor %}
+					{% if experience_message == "No Past Experience Available!" %}
+					<div class="tango"><p>NO EXPERIENCE AVAILABLE</p></div>
+					{% endif %}
+				</div>
+				<div class="lastv"><a href="/create_experience">(Add An Experience)</a></div>
+
+				<div>
+					<div class="lastk">
+						<h1><span>Skill</span><span><a href="/create_skill">(add)</a></span></h1>
+					</div>
+					{% for x in skills %}
+					<div class="tango"><p>{{x.proficiency}} proficiency at {{x.skill_set}}</p><a href="{% url 'deleteSkill' x.id %}"><img src="{% static './asset/img/bank.svg' %}"></a></div>
+					{% endfor %}
+					{% if skill_message == "No Skill Available!" %}
+					<div class="tango"><p>NO SKILL AVAILABLE</p></div>
+					{% endif %}
+				</div>
+				<div class="lastv"><a href="/create_skill">(Add A Skill)</a></div>
+			</div>
+		</div>
+    </section>
+	<img src="{% static './img/Caleblogo.png' %}" class="mainbackground">
+    <script type="text/javascript">
+
+		var super_count = 0;
+		$("#menu_drop").on("click", function()
+		{
+			if(super_count == 0)
+			{
+				super_count = 1;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "flex !important;";
+				$(".navigation_drop_down").css({"height": "95%", "width": "100%", "position": "fixed", "left": "0px", "z-index": "5", "display": "flex"});
+			}
+
+			else
+			{
+				super_count = 0;
+				let eken = document.querySelector(".navigation_drop_down");
+				eken.style = "none !important;";
+			}
+
+		});
+
+		$(document).ready(function(){
+			setInterval(function(){
+			    if(window.innerWidth > 930)
+			    {
+			        $(".navigation_drop_down").css({"display": "none"})
+			    }
+			});
+		});
+
+    </script>
+</body>
